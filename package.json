@@ -23,6 +23,6 @@
     "server": "node index.js",
     "build-server": "webpack --env=server",
     "clean": "rm -rf build && mkdir build",
-    "start": "./node_modules/.bin/babel-node ./build/server.bundle.js"
+    "start": "node ./build/server.bundle.js"
   }
 }
