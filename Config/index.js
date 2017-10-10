@@ -4,6 +4,6 @@
   } else {
     module.exports = {
       MONGODB_URI: process.env.MONGODB_URI,
-      urlBase: ''
+      urlBase: 'https://warm-anchorage-56608.herokuapp.com'
     }
   }
