@@ -60,44 +60,44 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
 
-module.exports = require("mongoose");
+module.exports = require("babel-polyfill");
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("mongoose");
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 if (process.env.NODE_ENV !== 'production') {
-  module.exports = __webpack_require__(8);
+  module.exports = __webpack_require__(10);
 } else {
   module.exports = {
     MONGODB_URI: process.env.MONGODB_URI,
-    urlBase: ''
+    urlBase: 'https://warm-anchorage-56608.herokuapp.com'
   };
 }
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(3);
+__webpack_require__(0);
 module.exports = __webpack_require__(4);
 
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("babel-polyfill");
 
 /***/ }),
 /* 4 */
@@ -106,15 +106,34 @@ module.exports = require("babel-polyfill");
 "use strict";
 
 
-var _express = __webpack_require__(5);
+__webpack_require__(0);
+__webpack_require__(5)({
+  presets: ['env']
+});
+__webpack_require__(6);
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-register");
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _express = __webpack_require__(7);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _bodyParser = __webpack_require__(6);
+var _bodyParser = __webpack_require__(8);
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-__webpack_require__(7);
+__webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -124,36 +143,36 @@ var PORT = process.env.PORT || 3000;
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use(_bodyParser2.default.json());
 
-__webpack_require__(9)(app);
+__webpack_require__(11)(app);
 
 app.listen(PORT, function () {
   console.log('server on PORT: ' + PORT);
 });
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = require("body-parser");
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _mongoose = __webpack_require__(0);
+var _mongoose = __webpack_require__(1);
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-var _Config = __webpack_require__(1);
+var _Config = __webpack_require__(2);
 
 var _Config2 = _interopRequireDefault(_Config);
 
@@ -168,7 +187,7 @@ _mongoose2.default.connect(_Config2.default.MONGODB_URI, { useMongoClient: true 
 });
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -180,17 +199,17 @@ module.exports = {
 };
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _todos = __webpack_require__(10);
+var _todos = __webpack_require__(12);
 
 var _todos2 = _interopRequireDefault(_todos);
 
-var _Config = __webpack_require__(1);
+var _Config = __webpack_require__(2);
 
 var _Config2 = _interopRequireDefault(_Config);
 
@@ -315,7 +334,7 @@ module.exports = function (app) {
 };
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -325,7 +344,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _mongoose = __webpack_require__(0);
+var _mongoose = __webpack_require__(1);
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
