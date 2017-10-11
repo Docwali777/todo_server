@@ -25,6 +25,6 @@
     "server": "node index.js",
     "build": "webpack --env=server",
     "clean": "rm -rf build && mkdir build",
-    "start": "node ./build"
+    "start": "node build/server.bundle.js"
   }
 }
