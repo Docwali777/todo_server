@@ -13,6 +13,12 @@ import '../MONGO'
 
 require('../Routes/api/todos')(app)
 
+app.get('/', (req, res)=>{
+  res.json({
+    message: 'TODO_SERVER_API',
+    Access_API_via: 'https://warm-anchorage-56608.herokuapp.com/api/todos'
+  })
+})
 
 app.listen(PORT, ()=>{
   console.log(`server on PORT: ${PORT}`)
